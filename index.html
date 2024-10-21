@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>실시간 CCTV 및 인원 관리</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <!-- 좌측 사이드바 (층 목록) -->
+    <div class="sidebar">
+      <nav>
+        <ul>
+          <li id="floor1Btn" class="selected">1F</li>
+          <li id="floor2Btn">2F</li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- 가운데 인원 리스트 -->
+    <div class="personnel-list">
+      <h2 id="personnelTitle">LIST <i class="fas fa-caret-down title-icon" onclick="toggleAccordion('personnelList')"></i></h2>
+      <ul id="personnelList" class="accordion open">
+        <!-- 인원 리스트가 동적으로 추가됨 -->
+        <li>
+          <div class="person-info">
+            <div class="profile-icon-bg">
+              <i class="fas fa-user profile-icon"></i>
+            </div>
+            <div class="details">
+              <strong>박지운</strong>
+              <small>AI소프트웨어 학생</small>
+            </div>
+          </div>
+          <div class="time-log">
+            <div class="time-log-entry">
+              <div class="time">08:30</div>
+              <div class="line"></div>
+              <div class="location">1F</div>
+            </div>
+            <div class="time-log-entry old">
+              <div class="time">07:30</div>
+              <div class="line"></div>
+              <div class="location">2F</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="person-info">
+            <div class="profile-icon-bg">
+              <i class="fas fa-user profile-icon"></i>
+            </div>
+            <div class="details">
+              <strong>곽지훈</strong>
+              <small>AI소프트웨어 학생</small>
+            </div>
+          </div>
+          <div class="time-log">
+            <div class="time-log-entry">
+              <div class="time">09:30</div>
+              <div class="line"></div>
+              <div class="location">2F</div>
+            </div>
+            <div class="time-log-entry old">
+              <div class="time">11:00</div>
+              <div class="line"></div>
+              <div class="location">1F</div>
+            </div>
+          </div>
+        </li>
+        <!-- 추가 인원 리스트 항목들을 여기서 추가 -->
+      </ul>
+    </div>
+
+    <!-- 우측 CCTV 화면 패널 -->
+    <div class="cctv-panel">
+      <div class="floor-title" onclick="toggleAccordion('cctvFeeds1F')">1F <i class="fas fa-caret-down title-icon"></i></div>
+      <div id="cctvFeeds1F" class="cctv-feeds accordion open">
+        <div class="cctv-feed">
+          <div class="cctv-feed-title">
+            <h3>CCTV 1</h3>
+            <p class="live-label-inline">1층 입구 실시간 화면</p>
+          </div>
+          <video src="videos/video1.mp4" controls muted autoplay loop></video>
+        </div>
+        <div class="cctv-feed">
+          <div class="cctv-feed-title">
+            <h3>CCTV 2</h3>
+            <p class="live-label-inline">1층 출구 실시간 화면</p>
+          </div>
+          <video src="videos/video2.mp4" controls muted autoplay loop></video>
+        </div>
+      </div>
+
+      <div class="floor-title" onclick="toggleAccordion('cctvFeeds2F')">2F <i class="fas fa-caret-down title-icon"></i></div>
+      <div id="cctvFeeds2F" class="cctv-feeds accordion open">
+        <div class="cctv-feed">
+          <div class="cctv-feed-title">
+            <h3>CCTV 3</h3>
+            <p class="live-label-inline">2층 입구 실시간 화면</p>
+          </div>
+          <video src="videos/video3.mp4" controls muted autoplay loop></video>
+        </div>
+        <div class="cctv-feed">
+          <div class="cctv-feed-title">
+            <h3>CCTV 4</h3>
+            <p class="live-label-inline">2층 출구 실시간 화면</p>
+          </div>
+          <video src="videos/video4.mp4" controls muted autoplay loop></video>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
+A

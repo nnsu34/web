@@ -1,0 +1,302 @@
+/* 폰트 설정 */
+@font-face {
+  font-family: 'GmarketSansBold';
+  src: url('fonts/GmarketSansTTFBold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('fonts/GmarketSansTTFMedium.ttf') format('truetype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'GmarketSansLight';
+  src: url('fonts/GmarketSansTTFLight.ttf') format('truetype');
+  font-weight: 300;
+}
+
+/* 전체 레이아웃 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background-color: #1E1E1E;
+  color: #CFCFCF;
+}
+
+body {
+  font-family: 'GmarketSansLight', Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  background-color: #1E1E1E;
+  color: #CFCFCF;
+  width: 100vw;
+}
+
+/* 좌측 사이드바 스타일 */
+.sidebar {
+  width: 4%;
+  background-color: #252831;
+  padding: 10px 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+}
+
+.sidebar nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar nav ul li {
+  width: 50px;
+  height: 50px;
+  margin: 20px 0;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s, border-left 0.3s, color 0.3s;
+  color: #6C757D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'GmarketSansBold', Arial, sans-serif;
+  font-size: 1.2em;
+}
+
+/* 선택된 아이템 (왼쪽에 선 추가 및 글자색 변경) */
+.sidebar nav ul li.selected {
+  background-color: #252831;
+  color: #38B2AC;
+  border-left: 5px solid #38B2AC;
+}
+
+/* 마우스를 올렸을 때 배경색 변경 */
+.sidebar nav ul li:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 가운데 인원 리스트 */
+.personnel-list {
+  width: 16%;
+  padding: 40px;
+  background-color: #252831; /* 인원 리스트 배경색 변경 */
+  font-family: 'GmarketSansMedium', Arial, sans-serif;
+  height: 100vh;
+  overflow-y: auto; /* 스크롤 가능하도록 설정 */
+}
+
+.personnel-list h2 {
+  font-size: 1.5em;
+  margin-bottom: 30px;
+  margin-left: 5px;
+  color: #CFCFCF;
+  font-family: 'GmarketSansBold', Arial, sans-serif;
+}
+
+.title-icon {
+  font-size: 0.8em;
+  color: #38B2AC;
+  margin-left: 5px;
+  transition: transform 0.3s;
+}
+
+.title-icon.open {
+  transform: rotate(180deg);
+}
+
+.personnel-list li {
+  padding: 15px;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  color: #A0AEC0;
+  font-family: 'GmarketSansLight', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 15px;
+  border: none;
+  background: none;
+}
+
+/* 프로필 아이콘 배경을 둥글게 유지 */
+.profile-icon-bg {
+  margin-bottom: 10px;
+  width: 45px;
+  height: 45px;
+  background-color: #2C3E50; /* 어두운 회색 계열로 변경 */
+  border-radius: 20%; /* 둥근 모서리 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0; /* 축소되지 않도록 설정 */
+  aspect-ratio: 1 / 1; /* 가로 세로 비율을 고정 */
+}
+
+.profile-icon {
+  color: rgba(255, 255, 255, 0.7); /* 아이콘 색상을 흰색으로 하고, 불투명도를 낮춰서 옅게 */
+  font-size:18px; /* 아이콘 크기 */
+}
+
+.person-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.details strong {
+  font-family: 'GmarketSansMedium', Arial, sans-serif;
+  color: #CBD5E0;
+  margin-bottom: 5px; /* 이름과 부서 사이에 여백 추가 */
+}
+
+.details small {
+  color: #A0AEC0;
+  margin-top: 0;
+}
+
+.personnel-list li .time-log {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.personnel-list li .time-log-entry {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.personnel-list li .time-log-entry .time {
+  width: 50px;
+  text-align: right;
+  margin-right: 20px;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #CFCFCF;
+}
+
+.personnel-list li .time-log-entry .line {
+  width: 5px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: #38B2AC;
+  margin-right: 20px;
+}
+
+.personnel-list li .time-log-entry .location {
+  color: #CFCFCF;
+}
+
+/* 이전 타임로그 옅게 표시 */
+.personnel-list li .time-log-entry.old {
+  opacity: 0.3;
+}
+
+/* CCTV 화면 패널 */
+.cctv-panel {
+  width: 80%;
+  padding: 40px 50px 50px 50px; 
+  background-color: #1E1E1E; 
+  font-family: 'GmarketSansMedium', Arial, sans-serif;
+  color: #F7F9F8; 
+  height: 100vh; 
+  overflow-y: hidden; 
+}
+
+.cctv-feed-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  margin-bottom: 10px; 
+}
+
+.cctv-feed-title h3 {
+  margin-right: 10px; 
+}
+
+.live-label-inline {
+  font-size: 0.9em;
+  color: #A0AEC0;
+  margin-top: 0;
+}
+
+.floor-title {
+  font-size: 1.5em; 
+  color: #CFCFCF; 
+  font-family: 'GmarketSansBold', Arial, sans-serif; 
+  margin-bottom: 15px; 
+  text-align: left; 
+}
+
+.floor-title i {
+  font-size: 0.8em; 
+  color: #38B2AC; 
+  margin-left: 5px; 
+}
+
+.live-label {
+  font-size: 0.9em; 
+  color: #A0AEC0; 
+  margin-top: 10px; 
+  margin-bottom: 10px; 
+}
+
+/* CCTV 그리드 스타일 */
+.cctv-feeds {
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 20px; 
+  margin-bottom: 40px; 
+}
+
+.cctv-feed {
+  background-color: transparent; 
+  padding: 0; 
+  height: auto; 
+}
+
+.cctv-feed h3 {
+  margin-bottom: 5px; 
+  font-size: 1.2em; 
+  color: #CFCFCF; 
+}
+
+.cctv-feed video {
+  width: 100%; 
+  border-radius: 10px; 
+  transition: background-color 0.3s; 
+  height: auto; 
+}
+
+/* 추가된 여백 */
+#cctvFeeds1F {
+  margin-bottom: 40px; 
+}
+
+.accordion {
+  display: none; 
+  overflow: hidden; 
+}
+
+.accordion.open {
+  display: grid; 
+}
